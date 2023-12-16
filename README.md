@@ -1,38 +1,26 @@
-# Welcome to Remix!
+# Remix v2 crash course
 
-- [Remix Docs](https://remix.run/docs)
+## Notes
 
-## Development
+### File structure
+- `root.tsx` root of app
+- `entry.client` & `entry.server` don't have to touch usually
+- `routes` dir is where all routes are stored
+- for UI routes, must always do a `export default`
 
-From your terminal:
+### Nested routes
+- `routes/hello.tsx` would be /hello
+- `routes/hello.one.tsx` would be /hello/one
+- for a layout component, must add `<Outlet />`
+- `dashboard.$id.tsx` is a dynamic route
 
-```sh
-npm run dev
-```
+## Prisma
+- `npm i prisma --save-dev`
+- `npm i @prisma/client`
+- to generate schema, run `npx prisma init`
 
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+## Planetscale DB
+- create db in planetscale (rollingsxshi)
+- update .env with connection string
+- copy prisma schema into `schema.prisma`
+- `npx prisma db push` after creating custom models in `schema.prisma`
